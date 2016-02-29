@@ -1,0 +1,15 @@
+﻿INSERT INTO guestbookdb.message(author, text, date_create) VALUES
+('John Fitzgerald Kennedy','My fellow Americans, ask not what your country can do for you – ask what you can do for your country','2016-01-20'),
+('Abraham Lincoln','If I were two-faced – would I be wearing this one?','2016-01-22'),
+('Ronald Wilson Reagan','It''s true hard work never killed anybody, but I figure why take the chance?','2016-01-21'),
+('Theodore Roosevelt','There is a homely old adage which runs: "Speak softly and carry a big stick, you will go far"','2016-01-19'),
+('William Jefferson Clinton','When I was in England I experimented with marijuana a time or two and I didn''t like it. I didn''t inhale and I never tried it again','2016-01-28'),
+('Franklin Delano Roosevelt','The only thing we have to fear is fear itself','2016-01-26'),
+('Andrew Johnson','Washington DC is twelve square miles bordered by reality','2016-01-24'),
+('Gerald Ford','I guess it proves that in America anyone can be President','2016-01-22'),
+('Harry S Truman','You want a friend in Washington? Get a dog','2016-01-29'),
+('Abraham Lincoln','You can fool some of the people all of the time and all of the people some of the time, but you cannot fool all of the people all of the time','2016-01-27'),
+('Ulysses S Grant','I know only two tunes: one of them is Yankee Doodle – and the other isn''t','2016-01-25'),
+('Barack Hussein Obama','I was actually black before the election','2016-01-23'),
+('George Washington','It is better to offer no excuse than a bad one','2016-01-30'),
+('Barack Hussein Obama','I''m not opposed to all wars. I''m opposed to dumb wars','2016-01-17');

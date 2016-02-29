@@ -1,0 +1,8 @@
+# IDE folder
+.idea/
+
+# Artifacts folder
+target/
+
+# temp file
+GuestBook.iml

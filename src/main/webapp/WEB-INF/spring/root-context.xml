@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <import resource="i18n/i18nMessageSource.xml"/>
+
+    <context:property-placeholder location="classpath*:*.properties"/>
+    <context:annotation-config />
+
+    <bean id="messageValidator" class="by.chupilin.web.guestbook.models.validators.MessageValidator"
+             init-method="validateAllPairParams">
+        <property name="authorMinLength" value="${message.authorMinLength}"/>
+        <property name="authorMaxLength" value="${message.authorMaxLength}"/>
+        <property name="textMinLength" value="${message.textMinLength}"/>
+        <property name="textMaxLength" value="${message.textMaxLength}"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${dbcp.driverClassName}"/>
+        <property name="url" value="${dbcp.url}"/>
+        <property name="username" value="${dbcp.username}"/>
+        <property name="password" value="${dbcp.password}"/>
+        <property name="initialSize" value="${dbcp.initialSize}"/>
+        <property name="minIdle" value="${dbcp.minIdle}"/>
+        <property name="maxIdle" value="${dbcp.maxIdle}"/>
+        <property name="maxTotal" value="${dbcp.maxTotal}"/>
+        <property name="maxWaitMillis" value="${dbcp.maxWaitMillis}"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="by.chupilin.web.guestbook.models.impl"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Determine the folders that will automatically search bins components (@Component, @Service)  -->
+    <context:component-scan base-package="by.chupilin.web.guestbook.dao.impl" />
+    <context:component-scan base-package="by.chupilin.web.guestbook.services.impl" />
+
+
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+</beans>

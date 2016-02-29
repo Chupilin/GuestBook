@@ -1,0 +1,13 @@
+#inputText, #inputAuthor {
+    resize: none;
+    z-index: 3;
+}
+
+.lastRow {
+    padding-bottom: 20px;
+}
+
+a.home {
+    text-decoration: none;
+    color: #000000;
+}
